@@ -1,0 +1,190 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{60529BFA-4CB3-4864-BC2B-C6314E99BD72}</ProjectGuid>
+			<ProjectVersion>12.0</ProjectVersion>
+			<MainSource>MAIN_P.dpr</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<BRCC_IncludePath>D:\DOWNLOADS\openssl-0.9.8k_X64\lib;D:\DOWNLOADS\openssl-0.9.8k_WIN32\lib;D:\DOWNLOADS\openssl-0.9.8j;$(BRCC_IncludePath)</BRCC_IncludePath>
+			<DCC_DependencyCheckOutputName>MAIN_P.exe</DCC_DependencyCheckOutputName>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_Platform>x86</DCC_Platform>
+			<DCC_E>false</DCC_E>
+			<DCC_N>false</DCC_N>
+			<DCC_S>false</DCC_S>
+			<DCC_F>false</DCC_F>
+			<DCC_K>false</DCC_K>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="MAIN_P.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="MAIN_U.pas">
+				<Form>frmMain</Form>
+			</DCCReference>
+			<DCCReference Include="frmSPLASH_SCREEN_U.pas">
+				<Form>frmSplashScreen</Form>
+			</DCCReference>
+			<DCCReference Include="dmMAIN_U.pas">
+				<Form>dmMain</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="clsORGANICMOOR_U.pas"/>
+			<DCCReference Include="frmTIPS_U.pas">
+				<Form>frmTips</Form>
+			</DCCReference>
+			<DCCReference Include="EASendMailObjLib_TLB.pas"/>
+			<DCCReference Include="frm_QUERY_U.pas">
+				<Form>frmQuery_G</Form>
+			</DCCReference>
+			<DCCReference Include="frm_G_CRUD_U.pas">
+				<Form>frmCRUD_G</Form>
+			</DCCReference>
+			<DCCReference Include="frm_G_SAVE_CHANGES_U.pas">
+				<Form>frmSaveChanges_G</Form>
+			</DCCReference>
+			<DCCReference Include="frm_A_CRUD_U.pas">
+				<Form>frmCRUD_A</Form>
+			</DCCReference>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">MAIN_P.dpr</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">2057</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<DebugEnvironmentVariables>
+						<DebugEnvironmentVariables Name="SSL_LIB_PATH">&apos;C:\Program Files\OpenSSL-Win64\lib&apos;</DebugEnvironmentVariables>
+						<DebugEnvironmentVariables Name="SSL_LIB_2ND_PATH">&apos;C:\OpenSSL-Win64\lib&apos;</DebugEnvironmentVariables>
+					</DebugEnvironmentVariables>
+					<DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="ALLUSERSPROFILE">&apos;C:\ProgramData&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="APPDATA">&apos;C:\Users\S00M4R\AppData\Roaming&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="BDS">&apos;d:\delphi&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="BDSAppDataBaseDir">&apos;BDS&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="BDSCOMMONDIR">&apos;C:\Users\Public\Documents\RAD Studio\7.0&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="BDSPROJECTSDIR">&apos;C:\Users\S00M4R\Documents\RAD Studio\Projects&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="BDSUSERDIR">&apos;C:\Users\S00M4R\Documents\RAD Studio\7.0&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="CG_BOOST_ROOT">&apos;D:\DELPHI\include\boost_1_39&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="CommonProgramFiles(x86)">&apos;C:\Program Files (x86)\Common Files&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="CommonProgramFiles">&apos;C:\Program Files (x86)\Common Files&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="CommonProgramW6432">&apos;C:\Program Files\Common Files&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="COMPUTERNAME">&apos;4L13N&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="ComSpec">&apos;C:\WINDOWS\system32\cmd.exe&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="DELPHI">&apos;d:\delphi&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="DriverData">&apos;C:\Windows\System32\Drivers\DriverData&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="EFC_6392">&apos;1&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="FPS_BROWSER_APP_PROFILE_STRING">&apos;Internet Explorer&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="FPS_BROWSER_USER_PROFILE_STRING">&apos;Default&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="HOMEDRIVE">&apos;C:&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="HOMEPATH">&apos;\Users\S00M4R&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="INTEL_DEV_REDIST">&apos;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="JD2_HOME">&apos;C:\Users\S00M4R\AppData\Local\JDownloader 2.0&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="KMP_BLOCKTIME">&apos;0&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="LOCALAPPDATA">&apos;C:\Users\S00M4R\AppData\Local&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="LOGONSERVER">&apos;\\4L13N&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="MIC_LD_LIBRARY_PATH">&apos;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\compiler\lib\mic&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="NUMBER_OF_PROCESSORS">&apos;12&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="OMP_WAIT_POLICY">&apos;PASSIVE&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="OneDrive">&apos;C:\Users\S00M4R\OneDrive&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="OS">&apos;Windows_NT&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="Path">&apos;D:\DELPHI\bin;C:\Users\Public\Documents\RAD Studio\7.0\Bpl;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Calibre2\;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\S00M4R\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\S00M4R\AppData\Local\Programs\Python\Python310\;C:\Users\S00M4R\AppData\Local\Microsoft\WindowsApps;C:\Users\S00M4R\AppData\Local\Programs\EmEditor;C:\Users\S00M4R\AppData\Local\atom\bin;C:\Users\S00M4R\AppData\Local\Microsoft\WindowsApps;;D:\Microsoft VS Code\bin;C:\Users\S00M4R\.dotnet\tools&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="PATHEXT">&apos;.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="PROCESSOR_ARCHITECTURE">&apos;x86&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="PROCESSOR_ARCHITEW6432">&apos;AMD64&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="PROCESSOR_IDENTIFIER">&apos;AMD64 Family 23 Model 8 Stepping 2, AuthenticAMD&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="PROCESSOR_LEVEL">&apos;23&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="PROCESSOR_REVISION">&apos;0802&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="ProgramData">&apos;C:\ProgramData&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="ProgramFiles(x86)">&apos;C:\Program Files (x86)&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="ProgramFiles">&apos;C:\Program Files (x86)&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="ProgramW6432">&apos;C:\Program Files&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="PSModulePath">&apos;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files\Intel\Wired Networking\&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="PUBLIC">&apos;C:\Users\Public&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="SESSIONNAME">&apos;Console&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="SystemDrive">&apos;C:&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="SystemRoot">&apos;C:\WINDOWS&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="TEMP">&apos;C:\Users\S00M4R\AppData\Local\Temp&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="TMP">&apos;C:\Users\S00M4R\AppData\Local\Temp&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="USERDOMAIN_ROAMINGPROFILE">&apos;4L13N&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="USERDOMAIN">&apos;4L13N&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="USERNAME">&apos;S00M4R&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="USERPROFILE">&apos;C:\Users\S00M4R&apos;</DebugSysEnvironmentVariables>
+						<DebugSysEnvironmentVariables Name="windir">&apos;C:\WINDOWS&apos;</DebugSysEnvironmentVariables>
+					</DebugSysEnvironmentVariables>
+				</Delphi.Personality>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>
